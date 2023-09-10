@@ -4,18 +4,23 @@ import {
   Route
 } from "react-router-dom";
 import Home from "./components/Home";
-import io from "socket.io-client";
-const socket=io.connect("http://localhost:3001");
+import Chatstate from "./context/Chatstate";
+import Chat from "./components/Chat";
 
 function App() {
   return (
+    <Chatstate>
     <Router>
      <Switch>
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/chat">
+            <Chat />
+          </Route>
         </Switch>
     </Router>
+    </Chatstate>
   );
 }
 

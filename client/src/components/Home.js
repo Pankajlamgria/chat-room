@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../css/home.css";
+import chatcontext from "../context/Chatcontext";
+import {useHistory} from "react-router-dom";
 const Home = () => {
+  const history=useHistory();
   const [user, setuser] = useState("");
   const [room, setroom] = useState("");
-
+  const contextcontent=useContext(chatcontext);
   const handleroom = (e) => {
     setroom(e.target.value);
   };
@@ -12,9 +15,20 @@ const Home = () => {
   };
   const handlecreate = (e) => {
     e.preventDefault();
+    if(user!=="" && room!==""){
+      localStorage.setItem("username",user);
+      localStorage.setItem("room",room);
+      contextcontent.createRoom(room,user);
+      history.push("/chat");
+    }
+    
   };
   const handlejoin = (e) => {
     e.preventDefault();
+    if(user!=="" && room!==""){
+      contextcontent.handleJoinRoom(room,user);
+      history.push("/chat");
+    }
   };
   return (
     <div>

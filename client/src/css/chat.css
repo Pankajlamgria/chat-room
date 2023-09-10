@@ -1,0 +1,126 @@
+.chatCover{
+    display: flex;
+}
+.chatContent{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 95vh;
+}
+.chatBarcls{
+    padding-left: 2.2rem;
+    padding-right: 1rem;
+    padding-top: 1rem;
+    height: 97.5vh;
+    width: 14%;
+    background-color: rgb(115, 155, 230);
+}
+.usernamelist{
+    height: 80vh;
+    /* background-color: aqua; */
+    overflow-y: auto; 
+}
+.atvuser,.roomName{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.roomName{
+    font-size: 25px;
+    margin-bottom: 2rem;
+    color:whitesmoke;
+}
+.atvuser{
+    font-size: 20px;
+    margin-bottom: 1rem;
+}
+.usrname{
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    font-size: 18px;
+}
+.atvicon{
+    height: 40px;
+    margin-right: 4px;
+}
+.chatbodycover{
+    /* margin-left: 5px; */
+    /* position: absolute; */
+
+    width: 1114px;
+    background-color: aliceblue;
+}
+.headingbar{
+    background-color: rgb(142, 174, 233);
+    padding-top: 4px;
+    padding-bottom: 4px;
+    color: white;
+    text-align: center;
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+.chatBodyContent{
+    background-color: rgb(238, 243, 253);
+    height: 83vh;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+}
+.msgcontent{
+    margin-left:5px;
+    width: 500px;
+    background-color: rgb(164, 188, 233);
+    margin-top: 1rem;
+    height: auto;
+    padding: 5px;
+    border-radius: 12px;
+}
+.sendersname{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.msg{
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+.you{
+    position: relative;
+    left:52% ;
+    margin-right: 5px;
+    background:linear-gradient(to bottom left,rgb(231, 238, 250),rgb(172, 190, 226)) ;
+    /* background-color:rgb(215, 226, 247); */
+    color: rgb(61, 61, 61);
+}
+.senderyou{
+    color: rgb(34, 34, 34);
+}
+.sendingmsgarea{
+    display: flex;
+}
+.sendingmsgarea input{
+    width:93%;
+    height: 40px;
+    margin-right: .5%;
+    margin-top: .5%;
+    margin-left: .5%;
+    border-radius: 8px;
+    border:1px solid rgb(162, 182, 248);
+    font-size: 18px;
+    padding-left: 5px;
+    overflow-y: auto;
+}
+.sendingmsgarea button{
+    width: 6%;
+    cursor: pointer;
+    margin-top: .5%;
+    height: 38px;
+    background-color: rgb(162, 182, 248);
+    border:1px solid rgb(190, 245, 202);
+    border-radius: 4px;
+    font-size: 16px;
+    color: white;
+    /* margin-bottom:  */
+}
