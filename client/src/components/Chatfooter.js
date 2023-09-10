@@ -1,12 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import chatcontext from '../context/Chatcontext';
 
 const Chatfooter = () => {
+  const contextcontent=useContext(chatcontext);
     const [sendmsg,setsendmsg]=useState("");
     const handlechangeingmsg=(e)=>{
         setsendmsg(e.target.value);
     }
     const handlesendmsg=()=>{
-        console.log(sendmsg);
+        if(sendmsg!==""){
+          contextcontent.sendmessage(sendmsg,localStorage.getItem("room"),localStorage.getItem("username"));
+        }
+        setsendmsg("");
     }
   return (
     <div>

@@ -26,6 +26,8 @@ const Home = () => {
   const handlejoin = (e) => {
     e.preventDefault();
     if(user!=="" && room!==""){
+      localStorage.setItem("username",user);
+      localStorage.setItem("room",room);
       contextcontent.handleJoinRoom(room,user);
       history.push("/chat");
     }

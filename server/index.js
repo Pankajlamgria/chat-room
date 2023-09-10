@@ -29,7 +29,7 @@ io.on("connection",(socket)=>{
         socket.join(data.roomName);
         socket.emit('roomCreated',data.roomName);
         // socket.emit('roomCreated',{data.roomName,chatbot});
-        console.log("room created");
+        // console.log("room created");
         // console.log(username,roomName,rooms[roomName].users,rooms[roomName].sockets);
         
     });
@@ -38,7 +38,11 @@ io.on("connection",(socket)=>{
         rooms[roomName].sockets.push(socket.id);
         socket.join(roomName);
         io.to(roomName).emit('userJoined',rooms[roomName].users);
-        console.log("room joined");
+        // console.log("room joined");
+    })
+    socket.on('send-message',(data)=>{
+        // console.log(data,"by sendmessage");
+        socket.in(data.roomName).emit('show-msg',data);
     })
     socket.on('disconnect',()=>{
         for(const roomName in rooms){
