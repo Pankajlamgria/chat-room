@@ -49,16 +49,48 @@
     width: 1114px;
     background-color: aliceblue;
 }
+#chatRoomHeading{
+    position: relative;
+    left: 4rem;
+}
+
 .headingbar{
     background-color: rgb(142, 174, 233);
     padding-top: 4px;
     padding-bottom: 4px;
     color: white;
-    text-align: center;
+    /* text-align: center; */
     font-size: 28px;
     font-family: 'Times New Roman', Times, serif;
     border: 2px solid white;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.leavebtn{
+    position: relative;
+    /* left: 2rem; */
+}
+.headerbtns{
+    display: flex;
+    position: relative;
+    left: 5rem;
+
+}
+.leavebtn button{
+    margin-left: 1.2rem;
+    cursor: pointer;
+    height: 35px;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(161 186 231);
+    color: white;
+    font-weight: bold;
+    border-radius: 4px;
+    border-color:white;
+    width: 60px;
 }
 .chatBodyContent{
     background-color: rgb(238, 243, 253);
@@ -81,8 +113,10 @@
     font-size: 18px;
     margin-top: 4px;
     margin-bottom: 4px;
+    padding-left: 14px;
 }
 .msg{
+    padding-left: 14px;
     font-size: 17px;
     margin-bottom: 5px;
 }

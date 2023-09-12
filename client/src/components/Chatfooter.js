@@ -16,6 +16,7 @@ const Chatfooter = () => {
   return (
     <div>
       <div className="sendingmsgarea">
+        
         <input  type="text" id="sendingmsg" value={sendmsg} onChange={handlechangeingmsg} />
         <button onClick={handlesendmsg}>Send</button>
       </div>

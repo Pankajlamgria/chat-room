@@ -1,16 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import activeusericon from "../images/activeusericon.png";
 import chatcontext from '../context/Chatcontext';
 const Chatbar = () => {
     const contextcontent=useContext(chatcontext);
+    useEffect(()=>{
+      contextcontent.joineduser();
+    },[contextcontent.socket,contextcontent.userlist])
+    
+    useEffect(()=>{
+      contextcontent.roomCreated();
+      contextcontent.disconnected();
+      contextcontent.leavingresponse();
+    },[contextcontent.socket,contextcontent.newRoomName,contextcontent.userlist])
+
   return (
     <div className='chatBarcls'>
-        <h3 className='roomName'>RoomName</h3>
+        <h3 className='roomName'>{contextcontent.newRoomName}</h3>
         <h4 className='atvuser'>Active users</h4>
         <div className="usernamelist">
-        <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />john</p>
+        {/* <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />john</p>
         <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />Dany</p>
-        <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />Shiv</p>
+        <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />Shiv</p> */}
         {contextcontent.userlist.map((user) => (
             <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />{user.name}</p>
           ))}

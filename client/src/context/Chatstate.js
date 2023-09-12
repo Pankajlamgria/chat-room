@@ -3,9 +3,9 @@ import chatcontext from "./Chatcontext";
 import io from "socket.io-client";
 const socket = io.connect("http://localhost:3001");
 const Chatstate = (props) => {
-  const [userlist,setuserlist]=useState([{name:"john"},{name:"Dany"},{name:"Shiv"}]);
+  const [userlist,setuserlist]=useState([]);
   const [messages,setmessages]=useState([]);
-  // creating room
+  const [newRoomName,setnewRoomName]=useState([]);
   const createRoom = (roomName,username) => {
     const data={roomName,username};
     socket.emit("createRoom", data);
@@ -28,9 +28,35 @@ const Chatstate = (props) => {
       // console.log();
     });
   }
+  const joineduser=()=>{
+    socket.on('userJoined',(data)=>{
+      setuserlist(data.user);
+      setnewRoomName(data.rName);
+
+    });
+  }
+  const roomCreated=()=>{
+    socket.on("roomCreated",(data)=>{
+      setnewRoomName(data.rName);
+      setuserlist(data.user);
+    })
+  }
+  const handleleaveroom=(username,roomName)=>{
+    socket.emit('leaveRoom',roomName,username);
+  }
+  const leavingresponse=()=>{
+    socket.on('leavedRoom',(data)=>{
+      setuserlist(data);
+    })
+  }
+  const disconnected=()=>{
+    socket.on('userleft',(data)=>{
+      setuserlist(data);
+    })
+  }
   return (
     <div>
-      <chatcontext.Provider value={{ createRoom,handleJoinRoom,socket,userlist,messages,sendmessage,getallmessage }}>
+      <chatcontext.Provider value={{ leavingresponse,handleleaveroom,disconnected,newRoomName,roomCreated,joineduser,createRoom,handleJoinRoom,socket,userlist,messages,sendmessage,getallmessage }}>
         {props.children}
       </chatcontext.Provider>
     </div>

@@ -1,17 +1,27 @@
 import React, { useContext, useEffect } from "react";
 import chatcontext from "../context/Chatcontext";
-
+import {useHistory} from "react-router-dom";
 const Chatbody = () => {
+  const history=useHistory();
   const contextcontent = useContext(chatcontext);
   useEffect(()=>{
     contextcontent.getallmessage();
   },[contextcontent.socket,contextcontent.messages])
-
+  const handleleave=()=>{
+    contextcontent.handleleaveroom(localStorage.getItem("username"),localStorage.getItem("room"));
+    history.push("/");
+    window.location.reload(false);
+  }
   return (
     <div className="chatbodycover">
       <div className="headingbar">
-        <h2>Chat-Room</h2>
+        <h2 id="chatRoomHeading">Chat-Room</h2>
+        <div className="headerbtns">
+        <div className="leavebtn"><button onClick={handleleave}>Leave</button></div>
+        <div className="dltroom leavebtn" style={{display:"none"}}><button>Delete</button></div>
+        </div>
       </div>
+   
       <div className="chatBodyContent">
         {contextcontent.messages.map((message) =>
           message.username === localStorage.getItem('username') ? (
