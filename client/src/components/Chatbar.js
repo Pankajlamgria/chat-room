@@ -1,13 +1,16 @@
 import React, { useContext, useEffect } from 'react'
 import activeusericon from "../images/activeusericon.png";
 import chatcontext from '../context/Chatcontext';
+import {useHistory} from "react-router-dom";
 const Chatbar = () => {
     const contextcontent=useContext(chatcontext);
+    const history=useHistory();
     useEffect(()=>{
       contextcontent.joineduser();
     },[contextcontent.socket,contextcontent.userlist])
-    
+
     useEffect(()=>{
+     
       contextcontent.roomCreated();
       contextcontent.disconnected();
       contextcontent.leavingresponse();

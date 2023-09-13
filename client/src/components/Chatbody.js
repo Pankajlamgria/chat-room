@@ -10,15 +10,29 @@ const Chatbody = () => {
   const handleleave=()=>{
     contextcontent.handleleaveroom(localStorage.getItem("username"),localStorage.getItem("room"));
     history.push("/");
+    localStorage.removeItem("username");
+    localStorage.removeItem("room");
     window.location.reload(false);
   }
+  useEffect(()=>{
+    contextcontent.socket.on('roomDeleted',async()=>{
+      // window.location.reload(false);
+      history.push('/');
+      await alert("Room has been deleted by admin.Join/Create another Room");
+    })
+    
+  },[contextcontent.socket])
+  const handleDeleteRoom=()=>{
+    contextcontent.deleteRoom(localStorage.getItem("username"),localStorage.getItem('room'));
+  }
+
   return (
     <div className="chatbodycover">
       <div className="headingbar">
         <h2 id="chatRoomHeading">Chat-Room</h2>
         <div className="headerbtns">
         <div className="leavebtn"><button onClick={handleleave}>Leave</button></div>
-        <div className="dltroom leavebtn" style={{display:"none"}}><button>Delete</button></div>
+        <div className="dltroom leavebtn" id="dltbtnid" style={{display:(contextcontent.visible)?"block":"none"}}><button onClick={handleDeleteRoom}>Delete</button></div>
         </div>
       </div>
    
