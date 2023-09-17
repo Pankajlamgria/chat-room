@@ -15,10 +15,15 @@ const Chatbar = () => {
       contextcontent.disconnected();
       contextcontent.leavingresponse();
     },[contextcontent.socket,contextcontent.newRoomName,contextcontent.userlist])
-
-  return (
-    <div className='chatBarcls'>
-        <h3 className='roomName'>{contextcontent.newRoomName}</h3>
+    const hidemenu=()=>{
+      document.getElementById("sidebars").style.display="none";
+    }
+  return (  
+    <div className='chatBarcls' id="sidebars">
+        <div className='roomNamecover'>
+          <h3 className='roomName'>{contextcontent.newRoomName}</h3>
+          <div id='hidemenu' onClick={hidemenu}><box-icon name='x'></box-icon></div>
+        </div>
         <h4 className='atvuser'>Active users</h4>
         <div className="usernamelist">
         {/* <p className='usrname'><img className='atvicon' src={activeusericon} alt="" />john</p>

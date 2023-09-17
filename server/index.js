@@ -16,10 +16,6 @@ const io = new Server(server, {
   },
 });
 io.on("connection", (socket) => {
-  // console.log(`user connected with userid:${socket.id}`);
-
-  // Room creation:
-
   socket.on("createRoom", (data) => {
     if (!rooms[data.roomName]) {
       rooms[data.roomName] = { users: [], sockets: [] };

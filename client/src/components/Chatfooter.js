@@ -13,11 +13,17 @@ const Chatfooter = () => {
         }
         setsendmsg("");
     }
+    const handleKeyDown = (event) => {
+      if (event.key === 'Enter') {
+        // 👇 Get input value
+        handlesendmsg();
+      }
+    };
   return (
     <div>
       <div className="sendingmsgarea">
         
-        <input  type="text" id="sendingmsg" value={sendmsg} onChange={handlechangeingmsg} />
+        <input  type="text" id="sendingmsg" value={sendmsg} onChange={handlechangeingmsg} onKeyDown={handleKeyDown} />
         <button onClick={handlesendmsg}>Send</button>
       </div>
     </div>

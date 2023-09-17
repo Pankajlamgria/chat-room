@@ -12,6 +12,7 @@
     padding-right: 1rem;
     padding-top: 1rem;
     height: 97.5vh;
+    position: relative;
     width: 14%;
     background-color: rgb(115, 155, 230);
 }
@@ -46,7 +47,9 @@
     /* margin-left: 5px; */
     /* position: absolute; */
 
-    width: 1114px;
+    /* width: 1114px; */
+    position: absolute;
+    width: 81%;
     background-color: aliceblue;
 }
 #chatRoomHeading{
@@ -92,9 +95,14 @@
     border-color:white;
     width: 60px;
 }
-.chatBodyContent{
+.chatBodyContent {
+    padding-bottom: 5rem;
     background-color: rgb(238, 243, 253);
-    height: 83vh;
+    /* height: 83vh; */
+    height: 69%;
+    width: 81%;
+    /* position: fixed; */
+    position: fixed;
     overflow: auto;
     display: flex;
     flex-direction: column;
@@ -120,10 +128,13 @@
     font-size: 17px;
     margin-bottom: 5px;
 }
+.covertosendermsgss{
+    width: auto;
+}
 .you{
-    position: relative;
-    left:52% ;
-    margin-right: 5px;
+    float: right;
+    /* right: 0px; */
+    margin-right: 1.4rem;
     background:linear-gradient(to bottom left,rgb(231, 238, 250),rgb(172, 190, 226)) ;
     /* background-color:rgb(215, 226, 247); */
     color: rgb(61, 61, 61);
@@ -132,11 +143,20 @@
     color: rgb(34, 34, 34);
 }
 .sendingmsgarea{
+    position: fixed;
+    width: 81%;
+    height: 50px;
+    bottom: 1rem;
+    margin-bottom: .2rem;
     display: flex;
 }
+#menuicon{
+    display: none;
+}
 .sendingmsgarea input{
+   
     width:93%;
-    height: 40px;
+    height: 50px;
     margin-right: .5%;
     margin-top: .5%;
     margin-left: .5%;
@@ -150,7 +170,7 @@
     width: 6%;
     cursor: pointer;
     margin-top: .5%;
-    height: 38px;
+    height: 49px;
     background-color: rgb(162, 182, 248);
     border:1px solid rgb(190, 245, 202);
     border-radius: 4px;
@@ -158,3 +178,243 @@
     color: white;
     /* margin-bottom:  */
 }
+.roomNamecover{
+    display: flex;
+    justify-content: space-between;
+}
+#hidemenu{
+        display: none;
+}
+
+@media screen and (max-width:1350px) {
+    .msgcontent{
+        width: 450px;
+    }
+}
+@media screen and (max-width:1100px) {
+
+    .sendingmsgarea{
+        width: 80%
+    }
+}
+
+@media screen and (max-width:1000px) {
+
+    .headerbtns{
+        left: 2rem;
+    }
+    .sendingmsgarea{
+        width: 79%
+    }
+}
+@media screen and (max-width:900px) {
+    .heading{
+        font-size: 60px;
+    }
+    .loginform{
+        width: 90%;
+        margin-left: 8%;
+    }
+    .msgcontent{
+        width: 400px;
+    }
+    .headerbtns{
+        left: 2rem;
+    }
+    .sendingmsgarea{
+        width: 79%
+    }
+}
+@media screen and (max-width:800px) {
+    .detail{
+        justify-content: space-around;
+    }
+    .detail label{
+        font-size: 26px;
+    }
+    .btn:nth-child(1) {
+        font-size: 15px;
+    }
+    .btn:nth-child(2) {
+        font-size: 15px;
+    }
+    .chatBarcls{
+            width: 18%;
+    }
+    .chatbodycover {
+        width: 75%;
+    }
+    .chatBodyContent{
+        width: 74%;
+    }
+    .msgcontent{
+        width: 300px;
+    }
+    .sendingmsgarea input {
+        width: 81%;
+    }
+    .sendingmsgarea button {
+        width: 9%;
+    }
+    
+}
+@media screen and (max-width:690px) {
+    .msgcontent{
+        width: 300px;
+    }
+    .headingbar{
+        justify-content: space-between;
+    }
+    .headerbtns {
+       left: 0px;
+       margin-right: 1rem;
+    }
+    .headingbar{
+        font-size: 20px;
+    }
+    .leavebtn button{
+        font-size: 13px;
+    }
+}
+@media screen and (max-width:600px) {
+    .sendingmsgarea input {
+        width: 77%;
+    }
+    .sendingmsgarea button {
+        width: 11%;
+    }
+}
+@media screen and (max-width:550px) {
+    .heading{
+        font-size: 50px;
+    }
+    .btn:nth-child(1) {
+        font-size: 13px;
+    }
+    .btn:nth-child(2) {
+        font-size: 13px;
+    }
+    .loginform {
+        width: 95%;
+        margin-left: 5%;
+    }
+    .detail input{
+        width: 45%;
+    }
+    .detail label {
+        font-size: 22px;
+    }
+    .msgcontent {
+        width: 253px;
+    }    
+    .chatBarcls {
+        display: none;
+    }
+    .chatbodycover{
+        width: 99%;
+    }
+    .chatBodyContent {
+        width:99%;
+    }
+    .sendingmsgarea {
+        width: 100%;
+    }
+    .sendingmsgarea input {
+        width: 82%;
+    }
+}
+@media screen and (max-width:410px) {
+    .loginform {
+        width: 100%;
+        margin-left: 2%;
+    }
+    .btncover{
+        margin-left: 2%;
+    }
+    .detail label {
+        font-size: 19px;
+    }
+    .detail input {
+        height: 19px;
+        font-size: 14px;
+    }
+    #hidemenu{
+        display: block;
+    }
+
+    .chatBarcls {
+        position: fixed;
+        z-index: 10;
+        width: 60%;
+    }
+    #menuicon{
+        display: block;
+    }
+    .chatBodyContent{
+        height: 72%;
+    }
+    .msgcontent {
+        width: 200px;
+    }    
+    #chatRoomHeading {
+        position: relative;
+        left: 0rem;
+        font-size: 28px;
+    }
+    .msgcontent {
+        width: 160px;
+    }
+    .sendingmsgarea button {
+        width: 14%;
+    }
+}
+@media screen and (max-width:350px) {
+    #chatRoomHeading {
+        position: relative;
+        left: 1rem;
+        font-size: 24px;
+    }
+    
+}
+
+
+
+
+
+@media (max-height: 1200px) {
+    .chatBodyContent{
+        height: 79%;
+    }
+    .sendingmsgarea input{
+        margin-top: 0px;
+    }
+    .sendingmsgarea{
+        bottom: 2rem;
+        margin-bottom:0px;
+    }
+  }
+@media (max-height: 1100px) {
+    .chatBodyContent{
+        height: 78%;
+    }
+  }
+@media (max-height: 900px) {
+    .chatBodyContent{
+        height: 76%;
+    }
+  }
+@media (max-height: 855px) {
+    .chatBodyContent{
+        height: 74%;
+    }
+  }
+@media (max-height: 700px) {
+    .chatBodyContent{
+        height: 68%;
+    }
+    .sendingmsgarea{
+        /* height: 4px; */
+        bottom: 1.4rem;
+        margin-bottom:0px;
+    }
+  }
