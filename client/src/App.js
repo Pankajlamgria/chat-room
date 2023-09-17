@@ -6,8 +6,9 @@ import {
 import Home from "./components/Home";
 import Chatstate from "./context/Chatstate";
 import Chat from "./components/Chat";
-
+document.title="ChatVerse";
 function App() {
+
   return (
     <Chatstate>
     <Router>

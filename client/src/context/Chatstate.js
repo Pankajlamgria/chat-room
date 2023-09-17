@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import chatcontext from "./Chatcontext";
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:3001");
+const socket = io.connect("https://chat-room-backend-4yry.onrender.com");
 const Chatstate = (props) => {
   const [visible,setvisible]=useState(false);
   const [userlist,setuserlist]=useState([]);

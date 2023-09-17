@@ -4,6 +4,7 @@ import Chatbody from "./Chatbody";
 import Chatfooter from "./Chatfooter";
 import "../css/chat.css";
 const Chat = () => {
+ 
   return (
     <div>
       <div className="chatCover">

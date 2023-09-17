@@ -17,9 +17,9 @@ const Chatbody = () => {
   }
   useEffect(() => {
     contextcontent.socket.on('roomDeleted', async () => {
-      window.location.reload(false);
       history.push('/');
       await alert("Room has been deleted by admin.Join/Create another Room");
+      window.location.reload(false);
     })
 
   }, [contextcontent.socket])
